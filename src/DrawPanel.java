@@ -5,7 +5,10 @@ import javax.swing.JPanel;
 public class DrawPanel extends JPanel{
 	
 	private BufferedImage memoryImage;
-	
+	/**
+	 * To Draw the panel
+	 * @param memoryImage image that is ready to be drawn
+	 */
 	public DrawPanel(BufferedImage memoryImage){
 		this.memoryImage = memoryImage;
 	}

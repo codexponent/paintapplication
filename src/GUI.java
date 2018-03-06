@@ -27,7 +27,9 @@ public class GUI extends JFrame{
 	DrawPanel drawPanel;
 	JTextArea textArea;
 	JTextArea messageArea;
-	
+	/**
+	 * Initializes GUI Constructor
+	 */
 	public GUI(){
 		setTitle("CUI Drawing Application");
 		setPreferredSize(new Dimension(1266, 668));
@@ -40,7 +42,9 @@ public class GUI extends JFrame{
 		messageArea.setEditable(false);											//Doesn't let us edit the messageArea
 		createWindows();														//Creates the window(s)(3)
 	}
-
+	/**
+	 * Creates the Menu
+	 */
 	private void createMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		
@@ -87,6 +91,9 @@ public class GUI extends JFrame{
 		setJMenuBar(menuBar);													//Adding the whole menu on the Frame
 	}
 	
+	/**
+	 * Creates the windows as defined by the requirements
+	 */
 	private void createWindows(){
 		JSplitPane splitPaneVertical = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);			//Splitting the Pane Vertically
 		
@@ -115,8 +122,10 @@ public class GUI extends JFrame{
 	}
 	
 	public class ExitListener implements ActionListener{
-
-		@Override
+		/**
+		 * Default Action Listener for Exit Listener
+		 * @param e ActionEvent
+		 */
 		public void actionPerformed(ActionEvent e) {
 			GUI.this.dispose();																//Disposing the object before exiting
 			System.exit(0);	
@@ -125,8 +134,10 @@ public class GUI extends JFrame{
 	}
 	
 	public class SaveListener implements ActionListener{
-
-		@Override
+		/**
+		 * Default Action Listener for Save Listener
+		 * @param e ActionEvent
+		 */
 		public void actionPerformed(ActionEvent event) {
 			JFileChooser fileChooser = new JFileChooser();
 			int option = fileChooser.showSaveDialog(GUI.this);
@@ -146,8 +157,10 @@ public class GUI extends JFrame{
 	}
 	
 	public class AboutListener implements ActionListener{
-
-		@Override
+		/**
+		 * Default Action Listener for About Listener
+		 * @param e ActionEvent
+		 */
 		public void actionPerformed(ActionEvent e) {
 			JOptionPane.showMessageDialog(null, "CUI Drawing Application.\nMade by Sulabh Shrestha.");
 		}
@@ -155,8 +168,10 @@ public class GUI extends JFrame{
 	}
 	
 	public class LoadListener implements ActionListener{
-
-		@Override
+		/**
+		 * Default Action Listener for Load Listener
+		 * @param e ActionEvent
+		 */
 		public void actionPerformed(ActionEvent e) {
 			JFileChooser fileChooser = new JFileChooser();
 			int option = fileChooser.showOpenDialog(null);
@@ -193,8 +208,10 @@ public class GUI extends JFrame{
 	}
 	
 	public class RunListener implements MenuListener{
-
-		@Override
+		/**
+		 * Default Menu Selection Action for Run Listener
+		 * @param e MenuEvent
+		 */
 		public void menuSelected(MenuEvent e) {
 			// TODO Auto-generated method stub
 			Validation validation = new Validation(messageArea);
@@ -206,14 +223,18 @@ public class GUI extends JFrame{
 				messageArea.append("Instructions Processed \n");
 			}
 		}
-
-		@Override
+		/**
+		 * Default Menu DeSelection Action for Exit Listener
+		 * @param e MenuEvent
+		 */
 		public void menuDeselected(MenuEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
-
-		@Override
+		/**
+		 * Default Menu Canceled Action for Exit Listener
+		 * @param e MenuEvent
+		 */
 		public void menuCanceled(MenuEvent e) {
 			// TODO Auto-generated method stub
 			

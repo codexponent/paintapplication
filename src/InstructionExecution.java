@@ -10,6 +10,11 @@ public class InstructionExecution {
 	int moveX, moveY, textDifference;
 	Graphics2D g;					//As bufferedImage doesn't take graphics, we had to take Graphics2D
 	
+	/**
+	 * Executing the commands from parameters
+	 * @param memoryImage the image that is needed to be drawn
+	 * @param drawPanel panel where the image will be drawn
+	 */
 	public InstructionExecution(BufferedImage memoryImage, DrawPanel drawPanel){		//Getting the BufferedImage and drawPanel from GUI
 		this.memoryImage = memoryImage;
 		this.drawPanel = drawPanel;
@@ -19,14 +24,20 @@ public class InstructionExecution {
 		g = (Graphics2D) memoryImage.getGraphics();										//g gets the Graphics2D and ready to draw 
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);		//Fixes rendering quality
 	}
-	
+	/**
+	 * Processes the raw Data for further ease
+	 * @param rawData string that comes from keyboard
+	 */
 	public void process(String rawData){												//gets the RAW BUT VALIDATED data from textArea
 		String[] lines = rawData.split("\n");											//Splitting on the basics of (\n)
 		for (int i = 0; i < lines.length; i++){
 			execute(lines[i]);															//Executing Single Line
 		}
 	}
-	
+	/**
+	 * Executes the raw Data into drawing code
+	 * @param information parsed data that is sent through process
+	 */
 	private void execute(String information){											//The information contains only a single string of information
 		String[] data = information.split(" ");											//Splitting on the basics of Spaces
 		String instruction = data[0];													//Saving the instruction name on the data[0]

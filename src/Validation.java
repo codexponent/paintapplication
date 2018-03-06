@@ -17,11 +17,18 @@ public class Validation {
 											};		//If we want to add a new set of instruction, just add here in the commands section
 	JTextArea textArea;								//For error Messages
 	int errorLineNumber = 0;
-	
+	/**
+	 * Validate the text coming from the keyboard
+	 * @param textArea the textarea where we type from keyboard
+	 */
 	public Validation(JTextArea textArea){			//Getting the messageArea for error Messages
 		this.textArea = textArea;
 	}
-	
+	/**
+	 * Verifies the string by splitting the file
+	 * @param source the source of the file
+	 * @return boolean value whether the file is valid or not
+	 */
 	public boolean verify(String source){
 		
 		String[] temp = source.split("\n");			//Splits the whole file on the basis of (\n)
@@ -34,7 +41,11 @@ public class Validation {
 		return true;								//If returned true, it means that the file is validated 
 		
 	}
-	
+	/**
+	 * Splitting the line via spaces (" ")
+	 * @param source the source of the file
+	 * @return the splitted source line
+	 */
 	public boolean line(String source){
 		
 		String[] temp = source.split(" ");			//For 1 line, splits the line via spaces(" ")
@@ -86,7 +97,11 @@ public class Validation {
 		
 		return isValid;				//If everything checks out, then true
 	}
-	
+	/**
+	 * checks the valid color range for the drawing
+	 * @param value gets the color value
+	 * @return boolean value if the validation is true or false
+	 */
 	private boolean checkColourRange(int value){
 		if (value >= 0 && value <= 255){				//Checking the range (0-255)
 			return true;
